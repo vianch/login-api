@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./server",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    // "baseUrl": ".",
+    "typeRoots": ["./server/types", "node_modules/@types"],
+    "types": ["node", "@types/express"],
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "inlineSourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "suppressImplicitAnyIndexErrors": true
+  },
+  "include": ["server/types/**/*", "server/**/*"],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
+    "server/apiDocs",
+    "scripts/migrator",
+    "scripts/**/*",
+    "**/*.test.ts"
+  ]
+}
