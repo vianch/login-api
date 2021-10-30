@@ -6,7 +6,7 @@ import cors from "cors";
 import { defaultPort, hostName } from "./lib/constants";
 
 // Routes
-import { stripeRoutes } from "./stripe";
+import { stripeRoutes } from "./modules/stripe";
 
 // Express config
 dotenv.config();

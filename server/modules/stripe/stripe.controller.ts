@@ -1,9 +1,13 @@
 import dotenv from "dotenv";
 import { Request, Response } from "express";
 
+// Service
+import { stripeSessionCompleted } from "./stripe.service";
+
 // Config
 dotenv.config();
 
+// TODO: create error and success responses answer, middleware and formats
 export const stripeWebhookController = async (
   request: Request,
   response: Response,
@@ -14,6 +18,7 @@ export const stripeWebhookController = async (
   if (data && eventType) {
     switch (eventType) {
       case "checkout.session.completed":
+        await stripeSessionCompleted(data);
         break;
       case "invoice.paid":
         break;

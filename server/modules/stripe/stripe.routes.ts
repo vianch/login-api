@@ -6,7 +6,7 @@ import { stripeRoutesPath } from "./stripe.constants";
 import { stripeWebhookController } from "./stripe.controller";
 
 // Services
-import { initStripe, stripeCreateSession } from "./stripe.service";
+import { stripeCreateSession } from "./stripe.service";
 
 // Config
 dotenv.config();
@@ -23,8 +23,7 @@ stripeRoutes.get("/api", (request: Request, response: Response): void => {
 stripeRoutes.get(
   stripeRoutesPath.checkout,
   async (request: Request, response: Response): Promise<boolean> => {
-    const stripe = await initStripe(process.env.STRIPE_SECRET_KEY || "");
-    const stripeSession = await stripeCreateSession(stripe);
+    const stripeSession = await stripeCreateSession();
 
     if (stripeSession) {
       response.send(stripeSession);
